@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_expense_sheet_refuse_wizard_form" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.refuse.wizard.form</field>
+        <field name="model">hr.expense.sheet.refuse.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Refuse Expense Sheet">
+                <group>
+                    <group>
+                        <field name="sheet_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="refusal_reason"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_refuse" string="Refuse" type="object" class="btn-danger"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_expense_sheet_refuse_wizard" model="ir.actions.act_window">
+        <field name="name">Refuse Expense Sheet</field>
+        <field name="res_model">hr.expense.sheet.refuse.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
