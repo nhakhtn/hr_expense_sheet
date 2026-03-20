@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Admin (base.group_system): See all expense sheets -->
+    <record id="ir_rule_hr_expense_sheet_admin" model="ir.rule">
+        <field name="name">Admin Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+    <!-- Expense Manager: See all expense sheets -->
+    <record id="ir_rule_hr_expense_sheet_expense_manager" model="ir.rule">
+        <field name="name">Expense Manager Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_expense.group_hr_expense_manager'))]"/>
+    </record>
+
+    <!-- All Approver (Director): See all expense sheets -->
+    <record id="ir_rule_hr_expense_sheet_all_approver" model="ir.rule">
+        <field name="name">All Approver Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_expense.group_hr_expense_user'))]"/>
+    </record>
+
+    <!-- Team Approver: See team expense sheets -->
+    <record id="ir_rule_hr_expense_sheet_team_approver" model="ir.rule">
+        <field name="name">Team Approver Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">['|',
+            ('employee_id.department_id.manager_id.user_id', '=', user.id),
+            ('employee_id.parent_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('hr_expense.group_hr_expense_team_approver'))]"/>
+    </record>
+
+    <!-- Invoicing: See only approved/posted/paid expense sheets -->
+    <record id="ir_rule_hr_expense_sheet_invoicing" model="ir.rule">
+        <field name="name">Invoicing Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">[('state', 'in', ['approved', 'posted', 'paid'])]</field>
+        <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+    </record>
+
+    <!-- User: See own expense sheets only -->
+    <record id="ir_rule_hr_expense_sheet_user" model="ir.rule">
+        <field name="name">User Expense Sheet</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

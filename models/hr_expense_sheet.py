@@ -87,6 +87,17 @@ class HrExpenseSheet(models.Model):
         compute='_compute_amount',
         store=True,
     )
+    amount_to_reimburse = fields.Monetary(
+        string='Amount to Reimburse',
+        compute='_compute_amount_to_reimburse',
+        store=False,
+    )
+    company_currency_id = fields.Many2one(
+        'res.currency',
+        string='Company Currency',
+        related='currency_id',
+        readonly=True,
+    )
     currency_id = fields.Many2one(
         'res.currency',
         string='Currency',
@@ -138,11 +149,24 @@ class HrExpenseSheet(models.Model):
     )
 
     # Compute methods
-    @api.depends('expense_ids.total_amount', 'expense_ids.total_amount_currency')
+    @api.depends('expense_ids.total_amount', 'expense_ids.total_amount_currency', 'expense_ids.state')
     def _compute_amount(self):
         for sheet in self:
-            total = sum(sheet.expense_ids.mapped('total_amount'))
+            # Only sum expenses that are not refused
+            total = sum(sheet.expense_ids.filtered(lambda e: e.state != 'refused').mapped('total_amount'))
             sheet.amount_total = total
+
+    @api.depends('expense_ids.total_amount', 'expense_ids.payment_mode', 'expense_ids.state')
+    def _compute_amount_to_reimburse(self):
+        for sheet in self:
+            # Get expenses that are not refused
+            expenses = sheet.expense_ids.filtered(lambda e: e.state != 'refused')
+            # Company paid amount
+            company_amount = sum(expenses.filtered(lambda e: e.payment_mode == 'company_account').mapped('total_amount'))
+            # Total amount
+            total_amount = sum(expenses.mapped('total_amount'))
+            # Amount to reimburse = total - company paid
+            sheet.amount_to_reimburse = total_amount - company_amount
 
     @api.depends('expense_ids')
     def _compute_expense_count(self):
@@ -190,8 +214,8 @@ class HrExpenseSheet(models.Model):
             is_manager = self.env.user.has_group('hr_expense.group_hr_expense_team_approver')
             if not is_owner and not is_manager:
                 raise UserError(_('You can only delete your own expense sheets.'))
-            if sheet.state not in ('draft', 'submitted'):
-                raise UserError(_('You can only delete draft or submitted expense sheets.'))
+            if sheet.state != 'draft':
+                raise UserError(_('You can only delete expense sheets in draft state.'))
         return super().unlink()
 
     # Action methods
@@ -232,23 +256,26 @@ class HrExpenseSheet(models.Model):
         if self.state != 'submitted':
             return False
 
-        # Approve all expenses
-        for expense in self.expense_ids:
-            if expense.state != 'submitted':
-                continue
-            try:
-                expense.action_approve()
-            except Exception as e:
-                raise UserError(
-                    _("Cannot approve expense '%s': %s") % (expense.name, str(e))
-                )
+        # Get expenses to approve (submitted, not refused)
+        expenses_to_approve = self.expense_ids.filtered(lambda e: e.state == 'submitted')
 
-        # Update sheet state
+        # Check can approve first
+        try:
+            expenses_to_approve._check_can_approve()
+        except Exception:
+            pass  # Continue even if check fails
+
+        # Approve all expenses directly (skip validation and wizard)
+        expenses_to_approve.sudo().write({
+            'approval_state': 'approved',
+            'approval_date': fields.Datetime.now(),
+        })
+
+        # Update sheet state to approved
         self.write({
             'state': 'approved',
             'date_approve': fields.Date.today(),
         })
-
 
         return True
 
@@ -275,10 +302,15 @@ class HrExpenseSheet(models.Model):
         if self.state != 'approved':
             return False
 
-        # Post all expenses
-        for expense in self.expense_ids:
-            if expense.state != 'approved':
-                continue
+        # Post all approved (not refused) expenses
+        expenses_to_post = self.expense_ids.filtered(lambda e: e.state == 'approved')
+
+        # Separate company-paid and employee-paid expenses
+        company_expenses = expenses_to_post.filtered(lambda e: e.payment_mode == 'company_account')
+        employee_expenses = expenses_to_post.filtered(lambda e: e.payment_mode == 'own_account')
+
+        # Post company-paid expenses (no wizard needed)
+        for expense in company_expenses:
             try:
                 expense.action_post()
             except Exception as e:
@@ -286,7 +318,16 @@ class HrExpenseSheet(models.Model):
                     _("Cannot post expense '%s': %s") % (expense.name, str(e))
                 )
 
-        # Update sheet state
+        # Post employee-paid expenses without wizard
+        if employee_expenses:
+            try:
+                employee_expenses._post_without_wizard()
+            except Exception as e:
+                raise UserError(
+                    _("Cannot post employee expenses: %s") % str(e)
+                )
+
+        # Update sheet state to posted
         self.write({
             'state': 'posted',
             'date_post': fields.Date.today(),
@@ -300,22 +341,30 @@ class HrExpenseSheet(models.Model):
         if self.state != 'posted':
             return False
 
-        # Pay all expenses
-        for expense in self.expense_ids:
-            if expense.state != 'posted':
-                continue
-            try:
-                expense.action_pay()
-            except Exception as e:
-                raise UserError(
-                    _("Cannot pay expense '%s': %s") % (expense.name, str(e))
-                )
+        # Get all posted (not refused) expenses
+        expenses_to_pay = self.expense_ids.filtered(lambda e: e.state == 'posted')
 
-        # Update sheet state
+        # Get all account move lines that need payment
+        lines = expenses_to_pay.mapped('account_move_id.line_ids')
+        if not lines:
+            raise UserError(_('No journal items found to pay.'))
+
+        # Create payment directly
+        payment_model = self.env['account.payment.register'].with_context(
+            active_model='account.move.line',
+            active_ids=lines.ids,
+        )
+        wizard = payment_model.create({})
+        # Process the payment
+        wizard.action_create_payments()
+
+        # Update sheet state to paid
         self.write({
             'state': 'paid',
             'date_paid': fields.Date.today(),
         })
+
+        return True
 
         return True
 

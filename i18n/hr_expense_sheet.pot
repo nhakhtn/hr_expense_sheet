@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation strings for Odoo modules.
+# Copyright (C) 2024 Odoo S.A.
+# SPDX-License-Identifier: LGPL-3
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: hr_expense_sheet
+#: model:ir.model,name:hr_expense_sheet.model_hr_expense_sheet
+msgid "Expense Sheet"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__name
+msgid "Expense Sheet"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__department_id
+msgid "Department"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__manager_id
+msgid "Manager"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__amount_total
+msgid "Total Amount"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__state
+msgid "Status"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__submitted
+msgid "Submitted"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__approved
+msgid "Approved"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__posted
+msgid "Posted"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__paid
+msgid "Paid"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__refused
+msgid "Refused"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_submit
+msgid "Submit Date"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_approve
+msgid "Approval Date"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_post
+msgid "Post Date"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_paid
+msgid "Paid Date"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__note
+msgid "Internal Notes"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__refusal_reason
+msgid "Refusal Reason"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__expense_count
+msgid "# Expenses"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__account_move_id
+msgid "Journal Entry"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__account_payment_id
+msgid "Payment"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model,name:hr_expense_sheet.model_hr_expense_sheet_refuse_wizard
+msgid "Refuse Expense Sheet Wizard"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet_refuse_wizard__refusal_reason
+msgid "Reason for Refusal"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "All expenses must belong to the same employee as the sheet."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "You can only delete your own expense sheets."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "You can only delete draft or submitted expense sheets."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Please add at least one expense to submit."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Expense '%s' has zero total. Please enter a valid amount."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Expense '%s' is not in draft state. Please reset it to draft first."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Cannot post expense '%s': %s"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Cannot post employee expenses: %s"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "No journal items found to pay."
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Expenses"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Journal Entry"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Payment"
+msgstr ""
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Refuse Expense Sheet"
+msgstr ""
+
+#~ msgid "Expense Sheets"
+#~ msgstr ""

@@ -2,9 +2,9 @@
 
 {
     'name': 'Expense Sheet',
-    'version': '1.0',
+    'version': '19.0.1.0.5',
     'category': 'Human Resources/Expenses',
-    'summary': 'Group multiple expenses into sheets for batch approval',
+    'summary': 'Group multiple expenses into sheets for batch approval - version 5',
     'description': """
 Expense Sheet Module
 ===================
@@ -23,6 +23,7 @@ Features:
     'depends': ['hr_expense'],
     'data': [
         'security/ir.model.access.csv',
+        'security/hr_expense_sheet_security.xml',
         'views/hr_expense_sheet_views.xml',
         'views/hr_expense_views.xml',
         'wizard/hr_expense_sheet_refuse_wizard_views.xml',

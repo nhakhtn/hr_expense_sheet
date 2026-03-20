@@ -1,0 +1,310 @@
+# Translation of Odoo Server.
+# This file contains the translation strings for Odoo modules.
+# Copyright (C) 2024 Odoo S.A.
+# SPDX-License-Identifier: LGPL-3
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: hr_expense_sheet
+#: model:ir.model,name:hr_expense_sheet.model_hr_expense_sheet
+msgid "Expense Sheet"
+msgstr "Phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__name
+msgid "Expense Sheet"
+msgstr "Phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__employee_id
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__department_id
+msgid "Department"
+msgstr "Phòng ban"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__manager_id
+msgid "Manager"
+msgstr "Quản lý"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__amount_total
+msgid "Total Amount"
+msgstr "Tổng số tiền"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__state
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__draft
+msgid "Draft"
+msgstr "Nháp"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__submitted
+msgid "Submitted"
+msgstr "Đã gửi"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__approved
+msgid "Approved"
+msgstr "Đã duyệt"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__posted
+msgid "Posted"
+msgstr "Đã ghi sổ"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__paid
+msgid "Paid"
+msgstr "Đã thanh toán"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields.selection,hr_expense_sheet.selection__hr_expense_sheet__state__refused
+msgid "Refused"
+msgstr "Từ chối"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_submit
+msgid "Submit Date"
+msgstr "Ngày gửi"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_approve
+msgid "Approval Date"
+msgstr "Ngày duyệt"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_post
+msgid "Post Date"
+msgstr "Ngày ghi sổ"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__date_paid
+msgid "Paid Date"
+msgstr "Ngày thanh toán"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__note
+msgid "Internal Notes"
+msgstr "Ghi chú nội bộ"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__refusal_reason
+msgid "Refusal Reason"
+msgstr "Lý do từ chối"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__currency_id
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__expense_count
+msgid "# Expenses"
+msgstr "# Chi phí"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__account_move_id
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet__account_payment_id
+msgid "Payment"
+msgstr "Thanh toán"
+
+#. module: hr_expense_sheet
+#: model:ir.model,name:hr_expense_sheet.model_hr_expense_sheet_refuse_wizard
+msgid "Refuse Expense Sheet Wizard"
+msgstr "Wizard từ chối phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: model:ir.model.fields,field_description:hr_expense_sheet.field_hr_expense_sheet_refuse_wizard__refusal_reason
+msgid "Reason for Refusal"
+msgstr "Lý do từ chối"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "All expenses must belong to the same employee as the sheet."
+msgstr "Tất cả chi phí phải thuộc về cùng một nhân viên với phiếu."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "You can only delete your own expense sheets."
+msgstr "Bạn chỉ có thể xóa phiếu chi phí của chính mình."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "You can only delete draft or submitted expense sheets."
+msgstr "Bạn chỉ có thể xóa phiếu chi phí ở trạng thái nháp hoặc đã gửi."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Please add at least one expense to submit."
+msgstr "Vui lòng thêm ít nhất một chi phí để gửi."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Expense '%s' has zero total. Please enter a valid amount."
+msgstr "Chi phí '%s' có tổng bằng 0. Vui lòng nhập số tiền hợp lệ."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Expense '%s' is not in draft state. Please reset it to draft first."
+msgstr "Chi phí '%s' không ở trạng thái nháp. Vui lòng đặt lại về nháp trước."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+#, python-format
+msgid "Cannot post expense '%s': %s"
+msgstr "Không thể ghi sổ chi phí '%s': %s"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Cannot post employee expenses: %s"
+msgstr "Không thể ghi sổ chi phí nhân viên: %s"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "No journal items found to pay."
+msgstr "Không tìm thấy bút toán nào để thanh toán."
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Expenses"
+msgstr "Chi phí"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Payment"
+msgstr "Thanh toán"
+
+#. module: hr_expense_sheet
+#: code:hr_expense_sheet:hr_expense_sheet.py:0
+msgid "Refuse Expense Sheet"
+msgstr "Từ chối phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Expense Sheet"
+msgstr "Phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_tree
+msgid "Expense Sheets"
+msgstr "Danh sách phiếu chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Submit"
+msgstr "Gửi"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Delete"
+msgstr "Xóa"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Approve"
+msgstr "Duyệt"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Refuse"
+msgstr "Từ chối"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Post Journal"
+msgstr "Ghi sổ"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Register Payment"
+msgstr "Đăng ký thanh toán"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Reset to Draft"
+msgstr "Đặt lại thành nháp"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "View Expenses"
+msgstr "Xem chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "View Journal Entry"
+msgstr "Xem bút toán"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "View Payment"
+msgstr "Xem thanh toán"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Expenses"
+msgstr "Chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Refusal Reason"
+msgstr "Lý do từ chối"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Total Amount"
+msgstr "Tổng số tiền"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "# Expenses"
+msgstr "# Chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense:hr_expense_sheet.view_hr_expense_list_inherit_sheet
+msgid "Expense"
+msgstr "Chi phí"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: hr_expense_sheet
+#: view:hr.expense.sheet:hr_expense_sheet.view_hr_expense_sheet_form
+msgid "Internal notes..."
+msgstr "Ghi chú nội bộ..."
