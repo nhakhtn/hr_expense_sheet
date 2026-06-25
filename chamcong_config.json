@@ -1,0 +1,363 @@
+{
+  "comp_id": "46249",
+  "api_base": "https://nhaxe.vexere.com",
+  "fields": "Id,Name,Info,SeatTemplateInfo,FareInfo,StatusInfo,BaseId,Type,Time,Alias,TeamInfo,VehicleInfo,FromArea,ToArea,Note,RouteInfo,SeatSummaryInfo,TotalSeats,ClosedStatus,PassengerMoney,ProductMoney,FeeMoney,BranchReceiveProduct,RealDepartureTime,PickedPointsInfo,TransferPointsInfo,NewFare,DisplayOrder,Description,TotalBookedSeats,TotalPaidSeats,Deposit,ContractNumber,ExtraNote,SeatTemplateName,TotalValidSeats,IsContractedBus,SeatTemplateId,PassengerProductMoney,PickupPassengerNumber,PickupPassengerMoney,PassengerPreOrderNumber,PassengerPreOrderMoney,UsingSpecialLayout,Trip_Statistic_REMOVED,IsEnhanced,VehicleId,FirstDriverId,SecondDriverId,ThirdDriverId,FirstAssistantId,SecondAssistantId,ThirdAssistantId,Code,DefaultTeamInfo,UsePhoneNumberWhenAssign,IsCustomerTrip,IsCommodityTrip,ContractedBusMoney,RevenuesInfo,SeatPolicyInfo,IsPrgUpdatedDate,IsPrgHistoryInfo,BusinessType,DefaultTripMetadata,ArrivalTime,OfficialTime",
+  "point_names": {
+    "178500": {
+      "code": "HN",
+      "city": "HÀ NỘI"
+    },
+    "178508": {
+      "code": "SP",
+      "city": "SAPA"
+    },
+    "180455": {
+      "code": "NB",
+      "city": "NINH BÌNH"
+    },
+    "182713": {
+      "code": "HUE",
+      "city": "HUẾ"
+    },
+    "182715": {
+      "code": "HA",
+      "city": "HỘI AN"
+    },
+    "192247": {
+      "code": "HL",
+      "city": "HẠ LONG"
+    }
+  },
+  "note_reassign": [
+    {
+      "_note": "Nếu chuyến nằm trong tuyến from_code nhưng Ghi chú chứa note_tag thì thực chất chạy tuyến to_code (xe xuất phát điểm khác). Đổi tuyến + tính lương/công theo to_code và highlight vàng trong Excel.",
+      "from_code": "NB-SP",
+      "to_code": "HN-SP",
+      "note_tag": "[hanoi-sapa]"
+    },
+    {
+      "from_code": "SP-NB",
+      "to_code": "SP-HN",
+      "note_tag": "[sapa-hanoi]"
+    }
+  ],
+  "seniority_mode": "attendance",
+  "_seniority_mode_note": "Mốc tính thâm niên & lương: 'departure'=theo ngày xuất bến (ngày xe chạy); 'attendance'=theo ngày chấm công (hôm nay); 'compare'=lương theo ngày xuất bến + sheet DATA hiện cả 2 cột để so sánh.",
+  "seniority": {
+    "_note": "Thâm niên tính tại NGÀY HÔM NAY (today − drivers_hire), KHÔNG theo ngày xe chạy. Thử việc: today − ngày vào ≤ probation_months tháng, HOẶC Ghi chú chuyến chứa 'thử việc' (lương = 0.9×chính_thức). Còn lại tính Level theo số năm TRÒN làm việc tới hôm nay, LÀM TRÒN XUỐNG (1 năm 11 tháng vẫn = 1 năm); chỉ phần lương CỐ ĐỊNH nhân hệ số level (năng suất giữ nguyên). Thiếu ngày vào → mặc định Level 1 và tô màu cảnh báo.",
+    "probation_months": 1,
+    "level_coefficients": {
+      "tv": 0.9,
+      "1": 1.0,
+      "2": 1.1,
+      "3": 1.2,
+      "4": 1.3,
+      "5": 1.5
+    },
+    "level_year_bounds": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "routes": [
+    {
+      "code": "HN-SP",
+      "sheet_code": "01. HNSP",
+      "name": "Hà Nội - Sa Pa",
+      "trip_id": 21981026,
+      "from": 178500,
+      "to": 178508,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "SP-HN",
+      "sheet_code": "02. SPHN",
+      "name": "Sa Pa - Hà Nội",
+      "trip_id": 21980770,
+      "from": 178508,
+      "to": 178500,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "NB-SP",
+      "sheet_code": "03. NBSP",
+      "name": "Ninh Bình - Sa Pa",
+      "trip_id": 21980581,
+      "from": 180455,
+      "to": 178508,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "SP-NB",
+      "sheet_code": "04. SPNB",
+      "name": "Sa Pa - Ninh Bình",
+      "trip_id": 21980553,
+      "from": 178508,
+      "to": 180455,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "HN-HA",
+      "sheet_code": "05. HNHA",
+      "name": "Hà Nội - Hội An",
+      "trip_id": 25879819,
+      "from": 178500,
+      "to": 182715,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HA-HN",
+      "sheet_code": "06. HAHN",
+      "name": "Hội An - Hà Nội",
+      "trip_id": 25879910,
+      "from": 182715,
+      "to": 178500,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HN-HUE",
+      "sheet_code": "07. HNHUE",
+      "name": "Hà Nội - Huế",
+      "trip_id": 26973575,
+      "from": 178500,
+      "to": 182713,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HUE-HN",
+      "sheet_code": "08. HUEHN",
+      "name": "Huế - Hà Nội",
+      "trip_id": 26973628,
+      "from": 182713,
+      "to": 178500,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HL-SP",
+      "sheet_code": "09. HLSP",
+      "name": "Hạ Long - Sa Pa",
+      "trip_id": 33971011,
+      "from": 192247,
+      "to": 178508,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "SP-HL",
+      "sheet_code": "10. SPHL",
+      "name": "Sa Pa - Hạ Long",
+      "trip_id": 33971113,
+      "from": 178508,
+      "to": 192247,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "HN-SPL",
+      "sheet_code": "12. HNSPL",
+      "name": "Hà Nội - Sa Pa (Limousine)",
+      "trip_id": 39060008,
+      "from": 178500,
+      "to": 178508,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "SP-HNL",
+      "sheet_code": "13. SPHNL",
+      "name": "Sa Pa - Hà Nội (Limousine)",
+      "trip_id": 39060057,
+      "from": 178508,
+      "to": 178500,
+      "region": "MB",
+      "weight": 1
+    },
+    {
+      "code": "SP-HA",
+      "sheet_code": "SP-HA",
+      "name": "Sa Pa - Hội An",
+      "trip_id": 26857870,
+      "from": 178508,
+      "to": 182715,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HA-SP",
+      "sheet_code": "HA-SP",
+      "name": "Hội An - Sa Pa",
+      "trip_id": 26858352,
+      "from": 182715,
+      "to": 178508,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "QN-HA",
+      "sheet_code": "QN-HA",
+      "name": "Quảng Ninh - Hội An",
+      "trip_id": 37081803,
+      "from": 192247,
+      "to": 182715,
+      "region": "MT",
+      "weight": 2
+    },
+    {
+      "code": "HA-QN",
+      "sheet_code": "HA-QN",
+      "name": "Hội An - Quảng Ninh",
+      "trip_id": 37081913,
+      "from": 182715,
+      "to": 192247,
+      "region": "MT",
+      "weight": 2
+    }
+  ],
+  "salary_rates": {
+    "_note": "Lương bình quân/lượt xe (cột H - Chính thức) theo Cơ chế lương LX khách 1.06.2026. lai1=xe 1 lái, lai2=xe 2 lái (mỗi lái), lai3=3 lái 2 xe. meal=hỗ trợ tiền ăn/lượt (cột L). fixed=lương CỐ ĐỊNH/lượt ở Level 1 (cột D Bảng lương Cố định); phần năng suất = (lai# - fixed). Lương/lượt = fixed×hệ_số_level + năng_suất; thử việc = 0.9×(fixed+năng_suất). CÁC TUYẾN MIỀN TRUNG (Huế/Hội An) đang là số tạm — hãy kiểm tra lại.",
+    "HN-SP": {
+      "fixed": 100000,
+      "lai1": 450000,
+      "lai2": 380000,
+      "lai3": 380000,
+      "meal": 0
+    },
+    "SP-HN": {
+      "fixed": 100000,
+      "lai1": 450000,
+      "lai2": 380000,
+      "lai3": 380000,
+      "meal": 0
+    },
+    "HN-SPL": {
+      "fixed": 100000,
+      "lai1": 450000,
+      "lai2": 380000,
+      "lai3": 380000,
+      "meal": 0
+    },
+    "SP-HNL": {
+      "fixed": 100000,
+      "lai1": 450000,
+      "lai2": 380000,
+      "lai3": 380000,
+      "meal": 0
+    },
+    "NB-SP": {
+      "fixed": 100000,
+      "lai1": 550000,
+      "lai2": 450000,
+      "lai3": 450000,
+      "meal": 0
+    },
+    "SP-NB": {
+      "fixed": 100000,
+      "lai1": 550000,
+      "lai2": 450000,
+      "lai3": 450000,
+      "meal": 0
+    },
+    "HL-SP": {
+      "fixed": 100000,
+      "lai1": 650000,
+      "lai2": 500000,
+      "lai3": 500000,
+      "meal": 0
+    },
+    "SP-HL": {
+      "fixed": 100000,
+      "lai1": 650000,
+      "lai2": 500000,
+      "lai3": 500000,
+      "meal": 0
+    },
+    "HN-HUE": {
+      "fixed": 200000,
+      "lai1": 650000,
+      "lai2": 650000,
+      "lai3": 850000,
+      "meal": 100000,
+      "note_overrides": [
+        {
+          "note_tag": "[quaydau]",
+          "label": "quay đầu",
+          "fixed": 150000,
+          "lai1": 600000,
+          "lai2": 600000,
+          "lai3": 600000,
+          "meal": 50000
+        }
+      ]
+    },
+    "HUE-HN": {
+      "fixed": 200000,
+      "lai1": 650000,
+      "lai2": 650000,
+      "lai3": 850000,
+      "meal": 100000,
+      "note_overrides": [
+        {
+          "note_tag": "[quaydau]",
+          "label": "quay đầu",
+          "fixed": 150000,
+          "lai1": 600000,
+          "lai2": 600000,
+          "lai3": 600000,
+          "meal": 50000
+        }
+      ]
+    },
+    "HN-HA": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    },
+    "HA-HN": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    },
+    "SP-HA": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    },
+    "HA-SP": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    },
+    "QN-HA": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    },
+    "HA-QN": {
+      "fixed": 200000,
+      "lai1": 800000,
+      "lai2": 800000,
+      "lai3": 1050000,
+      "meal": 100000
+    }
+  }
+}
