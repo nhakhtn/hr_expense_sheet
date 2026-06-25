@@ -1,7 +1,6 @@
 {
   "comp_id": "46249",
   "api_base": "https://nhaxe.vexere.com",
-  "fields": "Id,Name,Info,SeatTemplateInfo,FareInfo,StatusInfo,BaseId,Type,Time,Alias,TeamInfo,VehicleInfo,FromArea,ToArea,Note,RouteInfo,SeatSummaryInfo,TotalSeats,ClosedStatus,PassengerMoney,ProductMoney,FeeMoney,BranchReceiveProduct,RealDepartureTime,PickedPointsInfo,TransferPointsInfo,NewFare,DisplayOrder,Description,TotalBookedSeats,TotalPaidSeats,Deposit,ContractNumber,ExtraNote,SeatTemplateName,TotalValidSeats,IsContractedBus,SeatTemplateId,PassengerProductMoney,PickupPassengerNumber,PickupPassengerMoney,PassengerPreOrderNumber,PassengerPreOrderMoney,UsingSpecialLayout,Trip_Statistic_REMOVED,IsEnhanced,VehicleId,FirstDriverId,SecondDriverId,ThirdDriverId,FirstAssistantId,SecondAssistantId,ThirdAssistantId,Code,DefaultTeamInfo,UsePhoneNumberWhenAssign,IsCustomerTrip,IsCommodityTrip,ContractedBusMoney,RevenuesInfo,SeatPolicyInfo,IsPrgUpdatedDate,IsPrgHistoryInfo,BusinessType,DefaultTripMetadata,ArrivalTime,OfficialTime",
   "point_names": {
     "178500": {
       "code": "HN",
@@ -44,7 +43,7 @@
   "seniority_mode": "attendance",
   "_seniority_mode_note": "Mốc tính thâm niên & lương: 'departure'=theo ngày xuất bến (ngày xe chạy); 'attendance'=theo ngày chấm công (hôm nay); 'compare'=lương theo ngày xuất bến + sheet DATA hiện cả 2 cột để so sánh.",
   "seniority": {
-    "_note": "Thâm niên tính tại NGÀY HÔM NAY (today − drivers_hire), KHÔNG theo ngày xe chạy. Thử việc: today − ngày vào ≤ probation_months tháng, HOẶC Ghi chú chuyến chứa 'thử việc' (lương = 0.9×chính_thức). Còn lại tính Level theo số năm TRÒN làm việc tới hôm nay, LÀM TRÒN XUỐNG (1 năm 11 tháng vẫn = 1 năm); chỉ phần lương CỐ ĐỊNH nhân hệ số level (năng suất giữ nguyên). Thiếu ngày vào → mặc định Level 1 và tô màu cảnh báo.",
+    "_note": "Ngày vào (thâm niên) lấy TỪ VeXeRe: works_at của tài xế (đổi sang giờ VN +7). Danh sách tài xế cũng lấy trực tiếp từ VeXeRe (không còn drivers_hire trong file này). Thâm niên tính tại NGÀY HÔM NAY, KHÔNG theo ngày xe chạy. Thử việc: today − ngày vào ≤ probation_months tháng, HOẶC Ghi chú chuyến chứa 'thử việc' (lương = 0.9×chính_thức). Còn lại tính Level theo số năm TRÒN làm việc tới hôm nay, LÀM TRÒN XUỐNG (1 năm 11 tháng vẫn = 1 năm); chỉ phần lương CỐ ĐỊNH nhân hệ số level (năng suất giữ nguyên). Thiếu works_at → mặc định Level 1 và tô màu cảnh báo.",
     "probation_months": 1,
     "level_coefficients": {
       "tv": 0.9,
