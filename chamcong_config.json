@@ -423,24 +423,6 @@
           "meal": 50000
         }
       ]
-    },
-	"NT-HUE": {
-      "fixed": 200000,
-      "lai1": 650000,
-      "lai2": 650000,
-      "lai3": 850000,
-      "meal": 100000,
-      "note_overrides": [
-        {
-          "note_tag": "[quaydau]",
-          "label": "quay đầu",
-          "fixed": 150000,
-          "lai1": 600000,
-          "lai2": 600000,
-          "lai3": 600000,
-          "meal": 50000
-        }
-      ]
-    },
+    }
   }
 }
