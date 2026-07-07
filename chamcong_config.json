@@ -25,6 +25,10 @@
     "192247": {
       "code": "HL",
       "city": "HẠ LONG"
+    },
+	"199201": {
+      "code": "NT",
+      "city": "NHA TRANG"
     }
   },
   "note_reassign": [
@@ -220,7 +224,37 @@
       "to": 192247,
       "region": "MT",
       "weight": 2
-    }
+    },
+	{
+	  "code": "HN-NT",
+      "sheet_code": "HN-NT",
+      "name": "Hà Nội - Nha Trang",
+      "trip_id": 39240794,
+      "from": 178500,
+      "to": 199201,
+      "region": "MT",
+      "weight": 2
+	},
+	{
+	  "code": "NT-HN",
+      "sheet_code": "NT-HN",
+      "name": "Nha Trang - Hà Nội",
+      "trip_id": 39241043,
+      "from": 199201,
+      "to": 178500,
+      "region": "MT",
+      "weight": 2
+	},
+	{
+	  "code": "HUE-NT",
+      "sheet_code": "HUE-NT",
+      "name": "Huế - Nha Trang",
+      "trip_id": 39241059,
+      "from": 182713,
+      "to": 199201,
+      "region": "MT",
+      "weight": 2
+	}
   ],
   "salary_rates": {
     "_note": "Lương bình quân/lượt xe (cột H - Chính thức) theo Cơ chế lương LX khách 1.06.2026. lai1=xe 1 lái, lai2=xe 2 lái (mỗi lái), lai3=3 lái 2 xe. meal=hỗ trợ tiền ăn/lượt (cột L). fixed=lương CỐ ĐỊNH/lượt ở Level 1 (cột D Bảng lương Cố định); phần năng suất = (lai# - fixed). Lương/lượt = fixed×hệ_số_level + năng_suất; thử việc = 0.9×(fixed+năng_suất). CÁC TUYẾN MIỀN TRUNG (Huế/Hội An) đang là số tạm — hãy kiểm tra lại.",
@@ -357,6 +391,56 @@
       "lai2": 800000,
       "lai3": 1050000,
       "meal": 100000
-    }
+    },
+	"HN-NT": {
+      "fixed": 400000,
+      "lai1": 1300000,
+      "lai2": 1300000,
+      "lai3": 1300000,
+      "meal": 100000
+    },
+	"NT-HN": {
+      "fixed": 400000,
+      "lai1": 1300000,
+      "lai2": 1300000,
+      "lai3": 1300000,
+      "meal": 100000
+    },
+	"HUE-NT": {
+      "fixed": 200000,
+      "lai1": 650000,
+      "lai2": 650000,
+      "lai3": 850000,
+      "meal": 100000,
+      "note_overrides": [
+        {
+          "note_tag": "[quaydau]",
+          "label": "quay đầu",
+          "fixed": 150000,
+          "lai1": 600000,
+          "lai2": 600000,
+          "lai3": 600000,
+          "meal": 50000
+        }
+      ]
+    },
+	"NT-HUE": {
+      "fixed": 200000,
+      "lai1": 650000,
+      "lai2": 650000,
+      "lai3": 850000,
+      "meal": 100000,
+      "note_overrides": [
+        {
+          "note_tag": "[quaydau]",
+          "label": "quay đầu",
+          "fixed": 150000,
+          "lai1": 600000,
+          "lai2": 600000,
+          "lai3": 600000,
+          "meal": 50000
+        }
+      ]
+    },
   }
 }
