@@ -254,7 +254,27 @@
       "to": 199201,
       "region": "MT",
       "weight": 2
-	}
+	},
+	{
+      "code": "HN-NB(VĐT)",
+      "sheet_code": "HN-NB(VĐT)",
+      "name": "Hà Nội - Ninh Bình (VĐT)",
+      "trip_id": 36957361,
+      "from": 178500,
+      "to": 180455,
+      "region": "MB",
+      "weight": 1
+    },
+	{
+      "code": "NB-HN(VĐT)",
+      "sheet_code": "NB-HN(VĐT)",
+      "name": "Ninh Bình - Hà Nội(VĐT)",
+      "trip_id": 36957388,
+      "from": 180455,
+      "to": 178500,
+      "region": "MB",
+      "weight": 1
+    }
   ],
   "salary_rates": {
     "_note": "Lương bình quân/lượt xe (cột H - Chính thức) theo Cơ chế lương LX khách 1.06.2026. lai1=xe 1 lái, lai2=xe 2 lái (mỗi lái), lai3=3 lái 2 xe. meal=hỗ trợ tiền ăn/lượt (cột L). fixed=lương CỐ ĐỊNH/lượt ở Level 1 (cột D Bảng lương Cố định); phần năng suất = (lai# - fixed). Lương/lượt = fixed×hệ_số_level + năng_suất; thử việc = 0.9×(fixed+năng_suất). CÁC TUYẾN MIỀN TRUNG (Huế/Hội An) đang là số tạm — hãy kiểm tra lại.",
@@ -423,6 +443,20 @@
           "meal": 50000
         }
       ]
+    },
+	"NB-HN(VĐT)": {
+      "fixed": 50000,
+      "lai1": 100000,
+      "lai2": 100000,
+      "lai3": 100000,
+      "meal": 0
+    },
+	"HN-NB(VĐT)": {
+      "fixed": 50000,
+      "lai1": 100000,
+      "lai2": 100000,
+      "lai3": 100000,
+      "meal": 0
     }
   }
 }
