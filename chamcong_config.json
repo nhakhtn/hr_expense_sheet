@@ -263,7 +263,8 @@
       "from": 178500,
       "to": 180455,
       "region": "MB",
-      "weight": 1
+      "weight": 1,
+      "driver_from_note": true
     },
 	{
       "code": "NB-HN(VĐT)",
@@ -273,7 +274,8 @@
       "from": 180455,
       "to": 178500,
       "region": "MB",
-      "weight": 1
+      "weight": 1,
+      "driver_from_note": true
     }
   ],
   "salary_rates": {
