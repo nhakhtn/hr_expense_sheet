@@ -42,6 +42,16 @@
       "from_code": "SP-NB",
       "to_code": "SP-HN",
       "note_tag": "[sapa-hanoi]"
+    },
+    {
+      "from_code": "HL-SP",
+      "to_code": "HN-SP",
+      "note_tag": "[hanoi-sapa]"
+    },
+    {
+      "from_code": "SP-HL",
+      "to_code": "SP-HN",
+      "note_tag": "[sapa-hanoi]"
     }
   ],
   "seniority_mode": "attendance",
